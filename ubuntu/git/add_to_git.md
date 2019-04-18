@@ -1,33 +1,16 @@
+## git常用操作
+
 ```shell
 git init  
 #将此文件夹设置为git仓库
-```
-
-```shell
 git add .
 #表示把该目录下的所有文件加入到本地暂存区中。执行成功后不会有任何提示：
-```
-
-
-
-```shell
 git commit 
 #该命令会把本地暂存区中的文件提交到本地历史区，注意只有在本地历史区中的内容才能提交到github。执行该命令后，我们所有的文件都只是在本地。没有github任何关系。如果出现fatal:remote origin already exists
-```
-
-
-
-```shell
 git remote add origin https://github.com/liyuhang2018/multi_agent.git
 #该命令是把本地历史区中的文件添加到github服务器的暂存区中。这一步是本地和远程服务器建立联系的一步。执行成功后不会显示任何
-```
-
-```shell
 git push -u origin master
 #这一步是真正向github提交，执行完成后，github上的repository就有和你本地一样的代码文件了。
-```
-
-```
 这些是各种场合常见的 Git 命令：
 
 开始一个工作区（参见：git help tutorial）
@@ -62,4 +45,32 @@ git push -u origin master
    push       更新远程引用和相关的对象
 
 ```
+
+## git的合作
+
+```
+1. xianhu在master分支上完成v0.1版本开发，“done demo in master”
+
+2. 发现master分支上有bug，需紧急修复。新建并检出hotfix分支进行bug修复，并merge回master分支，发布版本v0.2。
+
+3. xianhu新建并检出develop分支进行迭代开发，然后在develop分支上检出release01分支，进行发版前测试和bug修复。“fix bugs in release01”，完成后将release01分支merge回develop和master分支，并在master分支上发布版本v0.3。
+
+4. xianhu继续开发develop分支。此时团队成员增加，团队中的每个人都在develop的基础上新建并检出自己的feature分支，开发完成后merge回develop分支。这里利用到了rebase操作和冲突解决等，需要特别注意一点步骤。
+
+5. xianhu在develop分支上检出release02分支，再次进行发版前测试和bug修复，“fix bugs in release02”，完成后将release02分支merge回develop和master分支，并在master分支上发布版本v1.0。
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
